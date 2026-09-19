@@ -22,6 +22,7 @@
     "@vercel/node": "^13.0.1",
     "@vitejs/plugin-react": "^6.1.1",
     "typescript": "^7.0.2",
+    "vercel": "^59.23.2",
     "vite": "^8.3.0"
   },
   "allowScripts": {
