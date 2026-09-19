@@ -37,10 +37,11 @@ src/              React app (App.tsx, api.ts, types.ts, index.css)
 3. **Create the table**
 
    ```bash
-   psql "$env:DATABASE_URL" -f db/schema.sql
+   npm run migrate
    ```
 
-   No `psql` handy? Paste `db/schema.sql` into the Neon SQL Editor instead.
+   This applies `db/schema.sql` via `scripts/migrate.mjs` — no `psql` needed.
+   The schema uses `create ... if not exists`, so re-running is safe.
 
 ## Running locally
 
@@ -64,6 +65,7 @@ styling work.
 | `npm run build`     | Production build to `dist/`               |
 | `npm run preview`   | Serve the built `dist/`                   |
 | `npm run typecheck` | `tsc --noEmit` across `src/` and `api/`   |
+| `npm run migrate`   | Apply `db/schema.sql` to `DATABASE_URL`   |
 
 ## Notes
 
