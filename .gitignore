@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.vercel/
+
+# Secrets — never commit these. .env.example is the tracked template.
+.env
+.env.*
+!.env.example
+
+*.log
+npm-debug.log*
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json

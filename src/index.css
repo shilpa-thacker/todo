@@ -1,0 +1,205 @@
+:root {
+  --bg: #f7f7f8;
+  --surface: #ffffff;
+  --border: #e3e3e6;
+  --text: #1c1c1f;
+  --muted: #6b6b73;
+  --accent: #3b5bdb;
+  --danger: #c92a2a;
+  --radius: 10px;
+
+  color-scheme: light dark;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17171a;
+    --surface: #202024;
+    --border: #34343a;
+    --text: #ececf1;
+    --muted: #9a9aa4;
+    --accent: #748ffc;
+    --danger: #ff8787;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 3rem 1rem 4rem;
+}
+
+.app__header h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+.app__subtitle {
+  margin: 0.25rem 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.composer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.composer__input {
+  flex: 1;
+  padding: 0.7rem 0.85rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.composer__input:focus-visible,
+.filters__tab:focus-visible,
+.composer__submit:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.composer__submit {
+  padding: 0.7rem 1.2rem;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.composer__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.9rem;
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--danger) 35%, transparent);
+  border-radius: var(--radius);
+}
+
+.error button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.filters {
+  display: flex;
+  gap: 0.35rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.filters__tab {
+  padding: 0.35rem 0.75rem;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--muted);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.filters__tab.is-active {
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.empty {
+  padding: 2.5rem 1rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.item__main {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.item__main input {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.item__title {
+  overflow-wrap: anywhere;
+}
+
+.item.is-done .item__title {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.item__delete {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.item__delete:hover {
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+}
